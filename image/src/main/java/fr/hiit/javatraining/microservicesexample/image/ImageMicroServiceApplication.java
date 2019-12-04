@@ -9,6 +9,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class ImageMicroServiceApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("spring.config.name", "image");
 		SpringApplication.run(ImageMicroServiceApplication.class, args);
 	}
 

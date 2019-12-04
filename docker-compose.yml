@@ -1,0 +1,33 @@
+version: '3'
+services:
+  registry:
+    build:
+      context: registry/
+      args:
+        JAR_FILE: target/registry-0.0.1-SNAPSHOT.jar
+    ports:
+      - 8761:8761
+  gateway:
+    depends_on:
+      - registry
+    build:
+      context: gateway/
+      args:
+        JAR_FILE: target/gateway-0.0.1-SNAPSHOT.jar
+    ports:
+      - 8762:8762
+    environment:
+      EUREKA_HOST: registry
+      EUREKA_PORT: 8761
+  auth:
+    depends_on:
+      - registry
+    build:
+      context: auth/
+      args:
+        ARG_EUREKA_PORT: 8761
+        ARG_EUREKA_HOST: registry
+    environment:
+      EUREKA_HOST: registry
+      EUREKA_PORT: 8761
+

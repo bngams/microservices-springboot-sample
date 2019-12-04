@@ -1,4 +1,4 @@
-package fr.hiit.javatraining.microservicesexample.gallery;
+package fr.hiit.javatraining.microservicesexample.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,11 +6,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class GalleryMicroServiceApplication {
+public class AuthServiceApplication {
 
 	public static void main(String[] args) {
-		System.setProperty("spring.config.name", "gallery");
-		SpringApplication.run(GalleryMicroServiceApplication.class, args);
+		System.setProperty("spring.config.name", "auth");
+		SpringApplication.run(AuthServiceApplication.class, args);
 	}
 
 }
